@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Voice Chat</title>
+  <style>
+   body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin-top: 100px;
+}
+
+h1 {
+  margin-bottom: 30px;
+}
+
+#micContainer {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+#mic {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  background-color: #e0e0e0;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#mic.active {
+  background-color: #ff4081;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+#mic:before,
+#mic:after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+#mic:before {
+  background-color: #ff4081;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#mic:after {
+  background-color: #e0e0e0;
+  top: 60px;
+  left: 10px;
+}
+
+#responseContainer {
+  margin-top: 30px;
+}
+
+  </style>
+</head>
+<body>
+  <h1>Voice-to-Text Chat with ChatGPT for Mercor</h1>
+  <div id="micContainer">
+    <div id="mic"></div>
+  </div>
+  <div id="responseContainer"></div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
